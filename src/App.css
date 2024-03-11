@@ -1,38 +1,176 @@
+
+
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.top-header {
+  
+  font-family: 'Great Vibes', sans-serif;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem 0 0 0;
+}
+
+
+.header {
+  position: relative;
+  font-size: 1rem;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  
+}
+
+.categories {
+  display: flex;
+  background-color: #dbdbdb;
+  width: 100%;
+  margin-top: auto;
+  height: 45px;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+   /* Vertically center the items */
+}
+
+.nav {
+  display: inline-flex;
+  font-weight: 600;
+  
+}
+
+.header-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0;
+  justify-content: space-between;
+  
+}
+
+.header-list li {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 0px 3.5rem;
+}
+
+.header-category {
+  white-space: nowrap;
+}
+
+.product-search {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 10px 35px 10px 10px;
+  border-radius: 0px;
+  outline: none;
+  margin-left: 6rem;
+  background-color: #dbdbdb;
+}
+
+input:focus {
+  border-bottom: 1px solid black; /* Keep the bottom border when focused */
+}
+
+a {
+  color: rgb(0, 0, 0); /* Set default link color */
+  text-decoration: none; 
+}
+
+a:hover {
+  text-decoration: underline; 
+}
+
+
+
+.product-display {
+  background-image: url('./resources/closet.jpg');
+  height: 892px;
+   
+  background-position: center; 
+  background-repeat: no-repeat; 
+  position: relative;
+}
+
+.testimony {
+  margin-left: auto;
+  padding: 10.5rem 7rem 0 0;
+  display: flex;
   color: white;
+  font-weight: bold;
+  font-size: 2.8rem;
+  width: 45rem;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.wardrobe-button {
+  background-color: rgba(27, 27, 27, 0.911);
+  height: 3.5rem;
+  width: 25rem;
+  border: none;
+  padding: 0 0 0 0;
+  outline: none;
+  margin: 10px 0 0 0;
+  font-size: 1.2rem; 
+  color: white;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 2.2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.shopbutton-container {
+  position: absolute;
+  bottom: 1.8rem;
+  left: 3rem;
+  
+}
+
+.shopbutton {
+
+  display: flex;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1.4px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  padding: 12px 12px 12px 12px;
+  text-align: start;
+  align-items: center;
+  
+  color: transparent;
+  transition: width 2s ease; 
+}
+
+.button-text {
+  padding-left: 18px;
+  animation: fadeInText 2s forwards; 
+  animation-delay: 2s; 
+  white-space: nowrap;
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0; 
+    color: #000;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1; 
+    color: #000;
   }
 }
