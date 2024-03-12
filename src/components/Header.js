@@ -1,4 +1,4 @@
-
+import logo from '../resources/logo.jpg'
 
 const Header = () => {
 
@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className='top-header'>
-        <span>Mojo Furniture</span>
+        <img className='logo' src={logo}/>
       </div>
       <div className="categories">
       <nav className="nav">
