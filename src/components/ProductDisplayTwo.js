@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import shoppingBag from '../resources/shopping.svg'
 import closeIcon from '../resources/close.png'
+import Product from './Product'
+import furniture from '../resources/furnitureData';
 
-const ProductDisplay = () => {
+const ProductDisplayTwo = () => {
 
   const [buttonWidth, setButtonWidth] = useState(50)
   const [modalOpen, setModalOpen] = useState(false)
@@ -11,7 +13,7 @@ const ProductDisplay = () => {
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
 
-        if (scrollPosition > 65) {
+        if (scrollPosition > 1760) {
           setButtonWidth(225)
           
         } else {
@@ -41,18 +43,28 @@ const ProductDisplay = () => {
   }
 
   const modalClassName = modalOpen ? 'shop-modal open' : 'shop-modal'
-
+  
+  const productArray = furniture.slice(6,10).map((item, index) => (
+    <div key={index}>
+      <Product 
+        name = {item.name}
+        img = {item.img}
+        price ={item.price}
+      />
+    </div>
+  ))
+  
 
   return (
     <div>
-      <div className='product-display'>
-        <div className='testimony'>
+      <div className='product-display product-display-two'>
+        <div className='testimony-two'>
         
           <span>★★★★★</span>
-          <span>“modern furniture at a great price!” </span>
-          <button className='wardrobe-button'>SHOP WARDROBE FURNITURE</button>
+          <span>“made my living room look stunning!” </span>
+          <button className='wardrobe-button'>SHOP LIVING ROOM FURNITURE</button>
         </div>
-        <div className='shopbutton-container'>
+        <div className='shopbutton-container-two'>
           <button className='shopbutton' style={{ width: `${buttonWidth}px`}} onClick={handleModalOpen}>
             <img src={shoppingBag} alt='idc'/>
             <span className={(buttonWidth >= 225) ? 'button-text' : ''} >{(buttonWidth >= 225) ? 'SHOP THE ROOM' : ''}</span>
@@ -61,15 +73,10 @@ const ProductDisplay = () => {
          
         <div className={modalClassName}  onAnimationEnd={handleAnimationEnd}>
           <div className='modal-content'>
-            <img className='close-icon' src={closeIcon} onClick={handleModalClose}/> 
+            <img className='close-icon' src={closeIcon} alt="closeIcon" onClick={handleModalClose}/>
             <div className='product-grid'>
-              <div>
-                Textg
-                <img src=''></img>
-              </div>
-              <div>Textg</div>
-              <div>Textg</div>
-              <div>Textg</div>
+            {productArray}
+
             </div>
           </div>
         </div>
@@ -81,4 +88,4 @@ const ProductDisplay = () => {
   )
 }
 
-export default ProductDisplay;
+export default ProductDisplayTwo;

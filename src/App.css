@@ -10,26 +10,25 @@
   overflow-x: hidden;
 }
 
-.top-header {
-  
-  font-family: 'Great Vibes', sans-serif;
-  font-weight: 600;
-  font-size: 3rem;
-  
- 
-}
-
 
 .header {
   position: relative;
   font-size: 1rem;
-  height: 150px;
+  height: 185px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   align-items: center;
   
+}
+
+.top-header {
+  
+  font-family: 'Great Vibes', sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+
 }
 
 .logo {
@@ -42,18 +41,19 @@
 
 .categories {
   display: flex;
-  background-color: #dbdbdb;
+  
+  
   width: 100%;
   margin-top: auto;
-  height: 45px;
-  align-items: center;
-  justify-content: center;
-   /* Vertically center the items */
+  margin-left: 13rem;
+  height: 100px;
+  
+  
 }
 
 .nav {
   display: inline-flex;
-  font-weight: 600;
+  font-weight: 400;
   
 }
 
@@ -72,28 +72,107 @@
   display: flex;
   align-items: center;
   padding: 0px 3.5rem;
+  
 }
 
 .header-category {
   white-space: nowrap;
+  
+}
+
+.product-search-container {
+  margin-top: 20px;
 }
 
 .product-search {
-  border: none;
-  border-bottom: 1px solid black;
-  padding: 10px 35px 10px 10px;
+  display: flex;
+  border: 1px solid black;
+  padding: 0px 10px 0px 0px;
   border-radius: 0px;
   outline: none;
-  margin-left: 6rem;
-  background-color: #dbdbdb;
+  background-color: #ffffff;
+  align-items: center;
 }
 
-input:focus {
-  border-bottom: 1px solid black; /* Keep the bottom border when focused */
+.product-input {
+  border: none;
+  outline: none;
+  width: 350px;
+  height: 50px;
+  text-indent: 20px;
+  font-size: 18px;
+}
+
+.product-results {
+  display: flex;
+  border: 1px solid rgb(109, 109, 109);
+  z-index: 1;
+  background-color: #ffffff;
+  justify-content: center;
+  
+}
+
+.product-reslults-list {
+  display: flex;
+  list-style-type: none;
+  list-style: none;
+  align-items: center;
+  width: 350px;
+}
+
+.hidden {
+  display: none;
+}
+
+.search-icon {
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.clear-icon {
+  height: 13px;
+}
+
+.clear-button {
+  height: 25px;
+  width: 25px;
+  padding: 3px;
+  margin-right: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.clear-button-hidden {
+  height: 25px;
+  width: 25px;
+  padding: 3px;
+  margin-right: 20px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.header-icons {
+  margin-left: auto;
+  margin-right: 16rem;
 }
 
 a {
-  color: rgb(0, 0, 0); /* Set default link color */
+  color: rgb(0, 0, 0); 
   text-decoration: none; 
 }
 
@@ -109,14 +188,14 @@ a:hover {
    
   background-position: center; 
   background-repeat: no-repeat; 
-  position: relative;
 }
 
 .testimony {
-  margin-left: auto;
-  padding: 10.5rem 7rem 0 0;
+  margin-right : auto ;
+  padding: 14.8rem 0 0 11rem;
+
   display: flex;
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   font-size: 2.8rem;
   width: 45rem;
@@ -146,9 +225,10 @@ a:hover {
 }
 
 .shopbutton-container {
-  position: absolute;
-  bottom: 1.8rem;
-  left: 3rem;
+  
+  position: relative;
+  top: 23rem;
+  left: 80vw;
   
 }
 
@@ -262,5 +342,181 @@ a:hover {
   width: 370px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
+  padding-bottom: 80px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.15s ease-in-out; 
+}
+
+.product-image {
+  height: 310px;
+  padding: 30px;
+}
+
+.feature {
+  height: 310px;
+}
+
+.text-container {
   
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.name-text {
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.name-text:hover {
+  text-decoration: underline;
+}
+
+.price-text {
+  font-size: 15px;
+  font-weight: 400;
+  padding-top: 7px;
+}
+
+.feature-display-container {
+  
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-text {
+  padding: 80px;
+  font-weight: bold;
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 200px 0 200px ;
+}
+
+.arrow-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.feature-display {
+  
+  padding: 0 250px 90px 295px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.product-info.enter {
+  animation: slideRight .3s forwards;
+}
+
+.product-info.exit {
+  animation: slideLeft .3s forwards;
+}
+
+@keyframes slideRight{
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+
+@keyframes slideLeft{
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* product display two !*/
+
+.product-display-two {
+  height: 942px;
+  background-size: cover;
+  background-image: url("./resources/modernlivingroom.jpg");
+}
+
+.testimony-two {
+  margin-left: auto;
+  padding: 10.5rem 5.8rem 0 0;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  font-size: 2.8rem;
+  width: 45rem;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.shopbutton-container-two {
+  position: relative;
+  top: 27rem;
+  left: 7vw;
+}
+
+.shopbutton {
+
+  display: flex;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1.4px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  padding: 12px 12px 12px 12px;
+  text-align: start;
+  align-items: center;
+  cursor: pointer;
+  color: transparent;
+  transition: width 2s ease; 
+}
+
+.button-text {
+  padding-left: 18px;
+  animation: fadeInText 2s forwards; 
+  animation-delay: 1.7s; 
+  white-space: nowrap;
+}
+
+.spacer {
+  padding: 7rem;
+  display: flex;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 2.8rem;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spacer-text {
+  padding-bottom: 30px;
+}
+
+.footer {
+  background-color: rgb(36, 36, 36);
+  height: 20rem;
 }
