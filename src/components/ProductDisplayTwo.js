@@ -47,9 +47,11 @@ const ProductDisplayTwo = () => {
   const productArray = furniture.slice(6,10).map((item, index) => (
     <div key={index}>
       <Product 
+        id = {item.id}
         name = {item.name}
         img = {item.img}
         price ={item.price}
+        description = {item.description}
       />
     </div>
   ))

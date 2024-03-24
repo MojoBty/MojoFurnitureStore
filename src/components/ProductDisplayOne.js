@@ -18,7 +18,7 @@ const ProductDisplayOne = () => {
           
         } else {
           setButtonWidth(50)
-          
+          document.body.style.overflow = 'auto';
         }
     }
     window.addEventListener('scroll', handleScroll);
@@ -47,9 +47,11 @@ const ProductDisplayOne = () => {
   const productArray = furniture.slice(0,4).map((item, index) => (
     <div key={index}>
       <Product 
+        id = {item.id}
         name = {item.name}
         img = {item.img}
         price ={item.price}
+        description = {item.description}
       />
     </div>
   ))

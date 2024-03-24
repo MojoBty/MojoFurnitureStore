@@ -53,41 +53,51 @@ const FeatureDisplay = () => {
         <div className="feature-display">
           <div>
             <Product padding = "30px"
+              id = {featureProducts[firstProductIndex].id}
               name = {featureProducts[firstProductIndex].name}
               img = {featureProducts[firstProductIndex].img}
               price ={featureProducts[firstProductIndex].price}
+              description ={featureProducts[firstProductIndex].description}
               transition = {transitioningR ? 'enter' : (transitioningL ? 'exit' : '')}
             />
           </div>
           <div>
           <Product padding = "30px"
+              id = {featureProducts[secondProductIndex].id}
               name = {featureProducts[secondProductIndex].name}
               img = {featureProducts[secondProductIndex].img}
               price ={featureProducts[secondProductIndex].price}
+              description ={featureProducts[secondProductIndex].description}
               transition = {transitioningR ? 'enter' : (transitioningL ? 'exit' : '')}
           />
           </div>
           <div>
           <Product padding = "30px"
+              id = {featureProducts[thirdProductIndex].id}
               name = {featureProducts[thirdProductIndex].name}
               img = {featureProducts[thirdProductIndex].img}
               price ={featureProducts[thirdProductIndex].price}
+              description ={featureProducts[thirdProductIndex].description}
               transition = {transitioningR ? 'enter' : (transitioningL ? 'exit' : '')}
           />
           </div>
           <div>
           <Product padding = "30px"
+              id = {featureProducts[fourthProductIndex].id}
               name = {featureProducts[fourthProductIndex].name}
               img = {featureProducts[fourthProductIndex].img}
               price ={featureProducts[fourthProductIndex].price}
+              description ={featureProducts[fourthProductIndex].description}
               transition = {transitioningR ? 'enter' : (transitioningL ? 'exit' : '')}
           />
           </div>
           <div>
           <Product padding = "30px"
+              id = {featureProducts[fifthProductIndex].id}
               name = {featureProducts[fifthProductIndex].name}
               img = {featureProducts[fifthProductIndex].img}
-              price ={featureProducts[thirdProductIndex].price}
+              price ={featureProducts[fifthProductIndex].price}
+              description ={featureProducts[fifthProductIndex].description}
               transition = {transitioningR ? 'enter' : (transitioningL ? 'exit' : '')}
           />
         </div>
