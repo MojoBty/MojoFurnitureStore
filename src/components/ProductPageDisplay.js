@@ -56,7 +56,7 @@ const ProductPageDisplay = (props) => {
               </div>
             </div>
             <div className='atc-button-container'>
-              <button className={isDesktop ? 'atc-button' : 'atc-button-mobile'} onClick={() => addToCart(props.id)}>
+              <button className={isDesktop ? 'atc-button' : 'atc-button-mobile'} onClick={() => addToCart(props.id, qty)}>
                 ADD TO CART
               </button>
             </div>

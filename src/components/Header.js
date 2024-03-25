@@ -86,12 +86,14 @@ const Header = () => {
           <button className='icon-button'>
             <img src={userIcon} alt="userIcon" className='header-icon'/>
           </button>
-          <button className='icon-button'>
-            <img src={cartIcon} alt="cartIcon" className='header-icon'/>
-            <div className={getCartItemAmount() === 0 ? "qty-counter-hidden" : "qty-counter"}>
-              {getCartItemAmount()}
-            </div>
-          </button>       
+          <Link to='/cart'>
+            <button className='icon-button'>
+              <img src={cartIcon} alt="cartIcon" className='header-icon'/>
+              <div className={getCartItemAmount() === 0 ? "qty-counter-hidden" : "qty-counter"}>
+                {getCartItemAmount()}
+              </div>
+            </button>       
+          </Link>
         </div>
       </div>
     </div>

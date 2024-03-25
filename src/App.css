@@ -809,3 +809,42 @@ a:hover {
   font-weight: 500;
   align-items: center;
 }
+
+.cart-display-container {
+  display: flex;
+}
+
+.cart-product-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 0 0 10vw;
+  width: 50vw;
+}
+
+.cart-product-card {
+  width: 80%;
+}
+
+.cart-name-text {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.cart-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-qty-text {
+ 
+}
+
+.cart-price-text {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.cart-product-image {
+  height: 18rem;
+}

@@ -15,13 +15,24 @@ const getDefaultCart = () => {
 
 export const ShoppingCartProvider = ( props ) => {
   const [cartItems, setCartItems] = useState(getDefaultCart())
+  const [cartItemIds, setCartItemIds] = useState([])
 
   const getCartItemAmount = () => {
     return Object.values(cartItems).reduce((total, quantity) => total + quantity, 0)
   }
 
-  const addToCart = (itemId) => {
-    setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + 1 }))
+  const getCartItems = () => {
+    let updatedItemIds = [cartItemIds]
+    for (let i = 0; i < cartItems.length; i++) {
+      if (cartItems[i] !== 0) {
+        updatedItemIds = [...cartItemIds, i]
+      }
+    }
+    setCartItemIds(updatedItemIds)
+  }
+
+  const addToCart = (itemId, qty) => {
+    setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + parseInt(qty) }))
   }
 
   const removeFromCart = (itemId) => {
@@ -30,7 +41,7 @@ export const ShoppingCartProvider = ( props ) => {
 
   console.log(cartItems)
 
-  const contextValue = {cartItems, addToCart, removeFromCart, getCartItemAmount}
+  const contextValue = {cartItems, cartItemIds, addToCart, removeFromCart, getCartItemAmount, getCartItems}
 
   return <ShoppingCartContext.Provider value={contextValue}>
     {props.children}

@@ -1,5 +1,6 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import React, {useEffect} from 'react'
 import Homepage from './pages/Homepage.js';
 import Products from './pages/Products.js';
 import ProductPage from './pages/ProductPage.js'
@@ -7,6 +8,7 @@ import ProductPage from './pages/ProductPage.js'
 import furnitureData from './resources/furnitureData.js'
 import Footer from './components/Footer.js';
 import { ShoppingCartProvider } from './context/ShopContext.js';
+import Cart from './pages/Cart.js';
 
 function App() {
 
@@ -24,15 +26,27 @@ function App() {
     
   ))
 
+  const ScrollToTop = () => {
+    const { pathname } = useLocation();
+  
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  
+    return null;
+  }
+
 
   return (
     <ShoppingCartProvider>
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/products' element={<Products />} />
           {productRoutes}
-          <Route path='*' element={<Navigate to='/' replace/>}/>
+          <Route path='/cart' element={<Cart />} />
+          <Route path='*' element={<Navigate to='/' replace/>}/>    
         </Routes>
       </BrowserRouter>
     </ShoppingCartProvider>
