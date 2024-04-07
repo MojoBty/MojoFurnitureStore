@@ -16,19 +16,45 @@ const getDefaultCart = () => {
 export const ShoppingCartProvider = ( props ) => {
   const [cartItems, setCartItems] = useState(getDefaultCart())
   const [cartItemIds, setCartItemIds] = useState([])
+  const [favoriteItems, setFavoriteItems] = useState(getDefaultCart())
 
   const getCartItemAmount = () => {
     return Object.values(cartItems).reduce((total, quantity) => total + quantity, 0)
   }
 
   const getCartItems = () => {
-    let updatedItemIds = [cartItemIds]
+    let counter = 0
     for (let i = 0; i < cartItems.length; i++) {
       if (cartItems[i] !== 0) {
-        updatedItemIds = [...cartItemIds, i]
+        counter += 1
       }
     }
-    setCartItemIds(updatedItemIds)
+    return counter
+  }
+
+  const getCartPrices = () => {
+    let totalAmount = 0
+    for (const product in cartItems) {
+      if (cartItems[product] > 0) {
+        let productInfo = furniture.find((item) => item.id == Number(product))
+        totalAmount += productInfo.price * cartItems[product]
+        
+      }
+    }
+    
+    return totalAmount
+  }
+
+  const getItemAmount = () => {
+    let itemAmount = 0
+    for (const product in cartItems) {
+      if (cartItems[product] > 0) {
+        itemAmount += cartItems[product]
+        
+      }
+    }
+
+    return itemAmount
   }
 
   const addToCart = (itemId, qty) => {
@@ -36,12 +62,20 @@ export const ShoppingCartProvider = ( props ) => {
   }
 
   const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({...prev, [itemId]: prev[itemId] - 1 }))
+    setCartItems((prev) => ({...prev, [itemId]: 0 }))
+  }
+
+  const addToFavorites = (itemId) => {
+    setFavoriteItems((prev) => ({...prev, [itemId]: prev[itemId] + 1 }))
+  }
+
+  const removeFromFavorites = (itemId) => {
+    setFavoriteItems((prev) => ({...prev, [itemId]: prev[itemId] - 1 }))
   }
 
   console.log(cartItems)
 
-  const contextValue = {cartItems, cartItemIds, addToCart, removeFromCart, getCartItemAmount, getCartItems}
+  const contextValue = {cartItems, cartItemIds, addToCart, removeFromCart, getCartItemAmount, getCartItems, getCartPrices, getItemAmount}
 
   return <ShoppingCartContext.Provider value={contextValue}>
     {props.children}

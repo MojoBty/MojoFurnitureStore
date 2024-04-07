@@ -12,6 +12,8 @@ const FeatureDisplay = () => {
   const [transitioningL, setTransitioningL] = useState(false)
   const [firstProductIndex, setFirstProductIndex] = useState(0)
 
+
+  
   const backClick = () => {
     setTransitioningR(true)
     setTimeout(() => {

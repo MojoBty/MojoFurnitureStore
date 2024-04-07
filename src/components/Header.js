@@ -14,8 +14,11 @@ const Header = () => {
 
   const [searchQuery, setSearchQuery] = useState("")
   const [clearStatus, setClearStatus] = useState(false)
-  const [containerWidth, setContainerWidth] = useState(window.innerWidth)
   const {cartItems, getCartItemAmount} = useContext(ShoppingCartContext)
+
+  const [isDesktop, setIsDekstop] = useState(true)
+  const [containerWidth, setContainerWidth] = useState(window.innerWidth)
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,6 +26,14 @@ const Header = () => {
     }
 
     window.addEventListener('resize', handleResize)
+  })
+
+  useEffect(() => {
+    if (containerWidth <= 1020) {
+      setIsDekstop(false)
+    } else {
+      setIsDekstop(true)
+    }
   })
 
   const handleInput = (event) => {
@@ -42,8 +53,8 @@ const Header = () => {
           <img className='logo' src={logo} />
         </Link>      
       </div>
-      <div className="categories">
-        <nav className="nav">
+      <div className={isDesktop ? "categories" : 'categories-mobile'}>
+        <nav className={isDesktop ? "nav" : 'nav-mobile'}>
           <ul className="header-list">
             <li className="header-category"><a href="#">Seating</a></li>
             <li className="header-category"><a href="#">Tables</a></li>
@@ -70,22 +81,21 @@ const Header = () => {
                   return item.name.toLowerCase().includes(searchQuery.toLowerCase())
                 }).slice(0,5).map((item, index) => (
                   <li className="product-reslults-list" key={index}>
-                    <img src={item.img} style={{height:'120px'}}/>
+                    <Link to={`/products/${item.id}`}>
+                      <img src={item.img} style={{height:'120px'}}/>
+                    </Link>
                     <div style={{marginLeft: '20px'}}>
-                      {item.name}
+                      <Link to={`/products/${item.id}`}>
+                        {item.name}
+                      </Link>
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
-        </div>
+          </div>
         <div className="header-icons">
-          <button className='icon-button'>
-            <img src={heartIcon} alt="heartIcon" className="header-icon"/>
-          </button>
-          <button className='icon-button'>
-            <img src={userIcon} alt="userIcon" className='header-icon'/>
-          </button>
+          
           <Link to='/cart'>
             <button className='icon-button'>
               <img src={cartIcon} alt="cartIcon" className='header-icon'/>

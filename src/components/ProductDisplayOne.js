@@ -9,6 +9,25 @@ const ProductDisplayOne = () => {
   const [buttonWidth, setButtonWidth] = useState(50)
   const [modalOpen, setModalOpen] = useState(false)
   
+  const [containerWidth, setContainerWidth] = useState(window.innerWidth)
+  const [isDesktop, setIsDekstop] = useState(true)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setContainerWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+  })
+
+  useEffect(() => {
+    if (containerWidth <= 1100) {
+      setIsDekstop(false)
+    } else {
+      setIsDekstop(true)
+    }
+  })
+
   useEffect(() => {
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
@@ -64,9 +83,9 @@ const ProductDisplayOne = () => {
         
           <span>★★★★★</span>
           <span>“modern furniture at a great price!” </span>
-          <button className='wardrobe-button'>SHOP WARDROBE FURNITURE</button>
+          <button className={isDesktop ? 'wardrobe-button' :  'wardrobe-button-mobile'}>SHOP WARDROBE FURNITURE</button>
         </div>
-        <div className='shopbutton-container'>
+        <div className={isDesktop ? 'shopbutton-container' : 'shopbutton-container-mobile'}>
           <button className='shopbutton' style={{ width: `${buttonWidth}px`}} onClick={handleModalOpen}>
             <img src={shoppingBag} alt='idc'/>
             <span className={(buttonWidth >= 225) ? 'button-text' : ''} >{(buttonWidth >= 225) ? 'SHOP THE ROOM' : ''}</span>

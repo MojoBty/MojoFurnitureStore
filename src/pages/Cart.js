@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import CartDisplay from '../components/CartDisplay'
 
 import { ShoppingCartContext } from '../context/ShopContext'
+import Footer from '../components/Footer'
 
 const Cart = () => {
   const { addToCart, removeFromCart } = useContext(ShoppingCartContext)
@@ -12,6 +13,7 @@ const Cart = () => {
     <div className='App'>
       <Header />
       <CartDisplay />
+      <Footer />
     </div>
   )
 }

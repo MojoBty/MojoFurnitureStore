@@ -41,12 +41,9 @@ const ProductPageDisplay = (props) => {
             <div className='product-page-display-title'>
               {props.name}
             </div>
-            <div className='icon-container'>
-              <img className='icon' src={heartIcon}/>
-            </div>
           </div>
           <div className='product-page-price'>
-            {props.price}
+            ${props.price}
           </div>
           <div style={{display: 'flex'}}>
             <div className='qty-container'>

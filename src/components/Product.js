@@ -11,7 +11,7 @@ const Product = (props) => {
         <Link to={`/products/${props.id}`}>
           <span className="name-text">{props.name}</span>
         </Link>
-        <span className="price-text">{props.price}</span>
+        <span className="price-text">${props.price}</span>
       </div>
     </div>
   )
