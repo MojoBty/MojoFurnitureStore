@@ -37,7 +37,7 @@ const CartProduct = (props) => {
             <Link to={`/products/${props.id}`}>
               <span className="cart-name-text">{props.name}</span> 
             </Link>
-            <span className="cart-price-text">${props.price}</span>
+            <span className="cart-price-text">${props.price * cartItems[props.id]}</span>
           </div>
           <span className="cart-qty-text">QTY {cartItems[props.id]}</span> 
         </div>

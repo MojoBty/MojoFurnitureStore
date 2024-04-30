@@ -3,6 +3,7 @@ import shoppingBag from '../resources/shopping.svg'
 import closeIcon from '../resources/close.png'
 import Product from './Product'
 import furniture from '../resources/furnitureData';
+import { Link } from 'react-router-dom';
 
 const ProductDisplayTwo = () => {
 
@@ -64,7 +65,9 @@ const ProductDisplayTwo = () => {
         
           <span>★★★★★</span>
           <span>“made my living room look stunning!” </span>
-          <button className='wardrobe-button'>SHOP LIVING ROOM FURNITURE</button>
+          <Link to="/products">
+            <button className='wardrobe-button'>SHOP LIVING ROOM FURNITURE</button>
+          </Link>
         </div>
         <div className='shopbutton-container-two'>
           <button className='shopbutton' style={{ width: `${buttonWidth}px`}} onClick={handleModalOpen}>

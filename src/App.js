@@ -9,6 +9,9 @@ import furnitureData from './resources/furnitureData.js'
 import Footer from './components/Footer.js';
 import { ShoppingCartProvider } from './context/ShopContext.js';
 import Cart from './pages/Cart.js';
+import Tables from './pages/Tables.js';
+import Dressers from './pages/Dressers.js';
+import Seating from './pages/Seating.js';
 
 function App() {
 
@@ -44,6 +47,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/products' element={<Products />} />
+          <Route path='/products/seating' element={<Seating />} />
+          <Route path='/products/tables' element={<Tables />} />
+          <Route path='/products/dressers' element={<Dressers />} />
           {productRoutes}
           <Route path='/cart' element={<Cart />} />
           <Route path='*' element={<Navigate to='/' replace/>}/>    

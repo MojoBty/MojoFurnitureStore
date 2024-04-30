@@ -73,7 +73,6 @@ export const ShoppingCartProvider = ( props ) => {
     setFavoriteItems((prev) => ({...prev, [itemId]: prev[itemId] - 1 }))
   }
 
-  console.log(cartItems)
 
   const contextValue = {cartItems, cartItemIds, addToCart, removeFromCart, getCartItemAmount, getCartItems, getCartPrices, getItemAmount}
 

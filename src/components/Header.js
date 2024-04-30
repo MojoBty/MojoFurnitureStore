@@ -56,10 +56,11 @@ const Header = () => {
       <div className={isDesktop ? "categories" : 'categories-mobile'}>
         <nav className={isDesktop ? "nav" : 'nav-mobile'}>
           <ul className="header-list">
-            <li className="header-category"><a href="#">Seating</a></li>
-            <li className="header-category"><a href="#">Tables</a></li>
-            <li className="header-category"><a href="#">Dressers</a></li>
-            <li className="header-category"><a href="#">Accessories</a></li>
+            
+            <li className="header-category"><Link to="/products">Shop All</Link></li>
+            <li className="header-category"><Link to="/products/seating">Seating</Link></li>
+            <li className="header-category"><Link to="/products/tables">Tables</Link></li>
+            <li className="header-category"><Link to="/products/dressers">Dressers</Link></li>
           </ul>
         </nav>
         <div className='container'>
