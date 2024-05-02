@@ -5,8 +5,6 @@ import { ShoppingCartContext } from "../context/ShopContext.js"
 import logo from '../resources/logo.jpg'
 import searchIcon from '../resources/searchicon.svg'
 import clearIcon from '../resources/close.png'
-import heartIcon from '../resources/heart.png'
-import userIcon from '../resources/user.png'
 import cartIcon from '../resources/shoppingcart.png'
 import furniture from '../resources/furnitureData.js'
 
@@ -63,7 +61,7 @@ const Header = () => {
             <li className="header-category"><Link to="/products/dressers">Dressers</Link></li>
           </ul>
         </nav>
-        <div className='container'>
+        <div className={isDesktop ? 'container' :'container-mobile'}>
           <div className="product-search-container" >
             <div className="product-search">
               <input placeholder="" type="text" value={searchQuery} className='product-input' onChange={handleInput}/>
@@ -81,7 +79,7 @@ const Header = () => {
                 {furniture.filter((item) => {
                   return item.name.toLowerCase().includes(searchQuery.toLowerCase())
                 }).slice(0,5).map((item, index) => (
-                  <li className="product-reslults-list" key={index}>
+                  <li className={isDesktop ? "product-results-list" : "product-results-list-mobile"} key={index}>
                     <Link to={`/products/${item.id}`}>
                       <img src={item.img} style={{height:'120px'}}/>
                     </Link>

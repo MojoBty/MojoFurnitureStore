@@ -42,7 +42,7 @@ const CartProduct = (props) => {
           <span className="cart-qty-text">QTY {cartItems[props.id]}</span> 
         </div>
         <div className="cart-product-image-row" >
-          <img className="cart-product-image" src={props.img}/>
+          <img className={isDesktop ? "cart-product-image" : "cart-product-image-mobile"} src={props.img}/>
           <div className="cart-product-icon-container">
             <div className="cart-icon" onClick={() => removeFromCart(props.id)}>
               <img src={closeIcon} style={{height: '30px'}}  />

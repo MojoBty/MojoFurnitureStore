@@ -11,8 +11,15 @@ const FeatureDisplay = () => {
   const [transitioningR, setTransitioningR] = useState(false)
   const [transitioningL, setTransitioningL] = useState(false)
   const [firstProductIndex, setFirstProductIndex] = useState(0)
+  const [containerWidth, setContainerWidth] = useState(window.innerWidth)
 
+  useEffect(() => {
+    const handleResize = () => {
+      setContainerWidth(window.innerWidth)
+    }
 
+    window.addEventListener('resize', handleResize)
+  })
   
   const backClick = () => {
     setTransitioningR(true)
@@ -47,13 +54,13 @@ const FeatureDisplay = () => {
       <div className="feature-text">
         <span>what's popular right now?</span>
       </div>
-      <div>
+      <div className="sliding-showcase">
         <div className="arrow-container">
           <button className="arrow-button" onClick={backClick}><img src={leftArrow} style={{height: "50px"}}/></button>
           <button className="arrow-button" onClick={forwardClick}><img src={rightArrow} style={{height: "50px"}}/></button>
         </div>
         <div className="feature-display">
-          <div>
+          <div className="feature-items">
             <Product padding = "30px"
               id = {featureProducts[firstProductIndex].id}
               name = {featureProducts[firstProductIndex].name}

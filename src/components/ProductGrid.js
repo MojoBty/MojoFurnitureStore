@@ -58,7 +58,7 @@ const ProductGrid = (props) => {
       setNumOfColumns(3)
     } else if (containerWidth >= 826) {
       setNumOfColumns(2)
-    }  else if (containerWidth >= 413) {
+    }  else if (containerWidth >= 0) {
         setNumOfColumns(1)
       }
     }

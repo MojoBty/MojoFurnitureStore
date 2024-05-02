@@ -9,7 +9,9 @@ const ProductDisplayTwo = () => {
 
   const [buttonWidth, setButtonWidth] = useState(50)
   const [modalOpen, setModalOpen] = useState(false)
-  
+  const [isDesktop, setIsDekstop] = useState(true)
+  const [containerWidth, setContainerWidth] = useState(window.innerWidth)
+
   useEffect(() => {
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
@@ -18,14 +20,21 @@ const ProductDisplayTwo = () => {
           setButtonWidth(225)
           
         } else {
-          setButtonWidth(50)
+          setButtonWidth(80)
           
         }
     }
     window.addEventListener('scroll', handleScroll);
-
-    
   })
+
+  useEffect(() => {
+    if (containerWidth <= 1100) {
+      setIsDekstop(false)
+    } else {
+      setIsDekstop(true)
+    }
+  })
+
 
   const handleModalOpen = () => {
     setModalOpen(true);
@@ -66,7 +75,7 @@ const ProductDisplayTwo = () => {
           <span>★★★★★</span>
           <span>“made my living room look stunning!” </span>
           <Link to="/products">
-            <button className='wardrobe-button'>SHOP LIVING ROOM FURNITURE</button>
+            <button className={isDesktop ? 'wardrobe-button' :  'wardrobe-button-mobile'}>SHOP LIVING ROOM FURNITURE</button>
           </Link>
         </div>
         <div className='shopbutton-container-two'>

@@ -62,7 +62,16 @@ const ProductDisplayOne = () => {
     }
   }
 
-  const modalClassName = modalOpen ? 'shop-modal open' : 'shop-modal'
+  
+  const modalClassName = () => {
+    let className = 'shop-modal'
+    if (modalOpen && !isDesktop) {
+      className = 'shop-modal shop-modal-mobile open'
+    } else if (modalOpen && isDesktop) {
+      className = 'shop-modal open'
+    }
+    return className
+  }
   
   const productArray = furniture.slice(0,4).map((item, index) => (
     <div key={index}>
@@ -95,7 +104,7 @@ const ProductDisplayOne = () => {
           </button>
         </div>
          
-        <div className={modalClassName}  onAnimationEnd={handleAnimationEnd}>
+        <div className={modalClassName()}  onAnimationEnd={handleAnimationEnd}>
           <div className='modal-content'>
             <img className='close-icon' src={closeIcon} alt="closeIcon" onClick={handleModalClose}/>
             <div className='product-grid'>
