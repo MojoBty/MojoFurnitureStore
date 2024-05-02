@@ -8,6 +8,7 @@
   padding: 0;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
+  
 }
 
 
@@ -617,7 +618,7 @@ a:hover {
 .footer {
   display: flex;
   background-color: rgb(36, 36, 36);
-  height: 4rem;
+  height: 7rem;
   align-items: center;
   justify-content: center;
   flex-direction: column;
